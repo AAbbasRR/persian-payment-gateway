@@ -57,7 +57,7 @@ class ZarinpalGateway(PaymentGateway):
             url=self.links["create_link"],
             data={
                 "merchant_id": self.merchant_id,
-                "amount": price,
+                "amount": int(price),
                 "description": description,
                 "callback_url": f"{callback_url}/payment-redirect",
             },
@@ -94,7 +94,7 @@ class ZarinpalGateway(PaymentGateway):
             data={
                 "merchant_id": self.merchant_id,
                 "authority": auth_token,
-                "amount": price,
+                "amount": int(price),
             },
         )
 
